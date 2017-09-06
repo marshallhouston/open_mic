@@ -34,7 +34,17 @@ class UserTest < Minitest::Test
 
     sal.learn(joke)
     sal.jokes
-    
+    assert_equal 1, sal.jokes.count
+  end
+
+  def test_it_can_tell_another_user_a_joke
+    joke = Joke.new({id: 1, question: "Why did the strawberry cross the road?", answer: "Because his mother was in a jam."})
+    sal = User.new("Sal")
+    ali = User.new("Ali")
+
+    sal.tell(ali, joke)
+    ali.jokes
+    assert_equal 1, ali.jokes.count
   end
 
 end
