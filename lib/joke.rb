@@ -7,21 +7,21 @@ attr_reader :joke_information
 
   def id
     id_info = @joke_information.find do |info|
-      info[1] == 1
+      info[0] == :id
     end
     id_info[1]
   end
 
   def question
     question_info = @joke_information.find do |info|
-      info[1] == "Why did the strawberry cross the road?"
+      info[0] == :question
     end
     question_info[1]
   end
 
   def answer
     answer_info = @joke_information.find do |info|
-      info[1] == "Because his mother was in a jam."
+      info[0] == :answer
     end
     answer_info[1]
   end

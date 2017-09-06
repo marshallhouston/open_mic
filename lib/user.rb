@@ -16,4 +16,10 @@ class User
     joke_receiver.jokes << joke
   end
 
+  def perform_routine_for(joke_listener)
+    @jokes.map do |joke|
+      joke_listener.jokes << joke
+    end
+  end
+
 end
